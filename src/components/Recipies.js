@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 class Recipies extends Component {
   render() {
@@ -10,11 +11,22 @@ class Recipies extends Component {
           return (
             <div className="recipe_main_section" key={recipe.recipe_id}>
               <img src={recipe.image_url} alt={recipe.title} />
-              <h2 className="recipe_title">{recipe.title}</h2>
+              <h2 className="recipe_title">
+                {recipe.title.length < 20
+                  ? `${recipe.title}`
+                  : `${recipe.title.substr(0, 20)}...`}
+              </h2>
               <h4 className="recipe_subtitle">Publisher: {recipe.publisher}</h4>
-              <button className="recipe_list_button">View Recipe</button>
-            </div>
 
+              <button className="recipe_list_button">
+                <Link
+                  to={{ pathname: `/recipe/${recipe.recipe_id}` }}
+                  className="recipe_link"
+                >
+                  View Recipe
+                </Link>
+              </button>
+            </div>
           );
         })}
       </div>
