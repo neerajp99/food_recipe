@@ -6,7 +6,7 @@ import Recipies from "./components/Recipies";
 import Recipe from "./components/Recipe";
 import { Route } from "react-router-dom";
 
-const API_KEY = "aee450e795f799f4dd397943442631cf";
+const API_KEY = "87c512bed7270a36543fa9a4b06c8bf0";
 
 class App extends Component {
   state = {
@@ -16,12 +16,26 @@ class App extends Component {
     e.preventDefault();
     const recipeName = e.target.elements.recipeName.value;
     const api_call = await fetch(
-      `https://www.food2fork.com/api/search?key=${API_KEY}&q=${recipeName}&page=2`
+      `https://www.food2fork.com/api/search?key=${API_KEY}&q=${recipeName}`
     );
     const data = await api_call.json();
     this.setState({
       recipes: data.recipes
     });
+  };
+
+  componentDidUpdate = () => {
+    const recipes = JSON.stringify(this.state.recipes);
+    localStorage.setItem("recipes", recipes);
+  };
+  componentDidMount = () => {
+    const jsonData = localStorage.getItem("recipes");
+    const jsonParse = JSON.parse(jsonData);
+    if (this.state.recipes.length !== 0) {
+      this.setState({
+        recipes: jsonParse
+      });
+    }
   };
 
   render() {

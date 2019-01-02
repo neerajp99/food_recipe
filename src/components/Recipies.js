@@ -20,7 +20,10 @@ class Recipies extends Component {
 
               <button className="recipe_list_button">
                 <Link
-                  to={{ pathname: `/recipe/${recipe.recipe_id}` }}
+                  to={{
+                    pathname: `/recipe/${recipe.recipe_id}`,
+                    state: { recipe: recipe.title }
+                  }}
                   className="recipe_link"
                 >
                   View Recipe
