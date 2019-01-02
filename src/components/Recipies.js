@@ -37,7 +37,7 @@ class Recipies extends Component {
                     className="recipe_link"
                   >
                     <button
-                      className="recipe_list_button;"
+                      className="recipe_list_button"
                     >
                       View Recipe
                     </button>
