@@ -3,14 +3,9 @@ import React, { Component } from "react";
 class Header extends Component {
   render() {
     return (
-      <div
-        className="recipe_navbar"
-        style={{
-          marginLeft: "8em"
-        }}
-      >
+      <div className="recipe_navbar">
         <header className="recipe_header">
-          <h1 className="recipe_heading">Recipe</h1>
+          <h1 className="recipe_heading">Recipe Book</h1>
         </header>
       </div>
     );

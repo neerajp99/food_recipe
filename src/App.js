@@ -6,7 +6,7 @@ import Recipies from "./components/Recipies";
 import Recipe from "./components/Recipe";
 import { Route } from "react-router-dom";
 
-const API_KEY = "87c512bed7270a36543fa9a4b06c8bf0";
+const API_KEY = "0eea0b593ba88639f0eea9308793e8fe";
 
 class App extends Component {
   state = {
