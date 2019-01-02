@@ -31,12 +31,11 @@ class App extends Component {
   componentDidMount = () => {
     const jsonData = localStorage.getItem("recipes");
     const jsonParse = JSON.parse(jsonData);
-    if(this.state.recipes.length != null){
+    if (jsonData) {
       this.setState({
         recipes: jsonParse
       });
     }
-
   };
 
   render() {
